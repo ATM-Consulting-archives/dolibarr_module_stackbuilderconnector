@@ -1,0 +1,54 @@
+Module104845Name = StackBuilderConnector
+Module104845Desc = StackBuilderConnector Description
+
+ATMAbout = Ce module a été développé par <a href="http://www.atm-consulting.fr" target="_blank">ATM Consulting</a><br>Vous pouvez retrouver la documentation sur notre <a href="http://wiki.atm-consulting.fr/index.php/Accueil" target="_blank">wiki</a><br><br>Pour toute question technique ou retour, contactez-nous sur <a href="mailto:support@atm-consulting.fr">support@atm-consulting.fr</a><br><br>Pour toute question commerciale, contactez-nous sur <a href="mailto:contact@atm-consulting.fr">contact@atm-consulting.fr</a> ou au +33 9 77 19 50 70<br><br>Retrouvez nos autres modules sur <a href="http://www.dolistore.com/search.php?orderby=position&orderway=desc&search_query=atm&submit_search=Rechercher" target="_blank">Dolistore</a>
+
+StackBuilderConnectorSetup = Configuration du module StackBuilderConnector
+StackBuilderConnectorAbout = A propos du module StackBuilderConnector
+
+StackBuilderConnector=StackBuilderConnector
+AbricotNeedUpdate=Le module abricot doit être mis à jour
+
+# SETUP
+ParamLabel=Nom du paramètre
+ParamDesc=Une description si besoin
+ParamHelp=Le contenu de l'aide
+
+# MENU
+TopMenuStackBuilderConnector=StackBuilderConnector
+
+# STATUS
+StackBuilderConnectorStatusCanceled=Abandonnée (fermée)
+StackBuilderConnectorStatusDraft=Brouillon (à valider)
+StackBuilderConnectorStatusValidated=Validée (à accepter)
+StackBuilderConnectorStatusRefused=Refusée (fermée)
+StackBuilderConnectorStatusAccepted=Acceptée (fermée)
+
+StackBuilderConnectorStatusShortCanceled=Abandonnée
+StackBuilderConnectorStatusShortDraft=Brouillon
+StackBuilderConnectorStatusShortValidated=Validée
+StackBuilderConnectorStatusShortRefused=Refusée
+StackBuilderConnectorStatusShortAccepted=Acceptée
+
+# LIST
+StackBuilderConnectorList=Liste StackBuilderConnector
+NoStackBuilderConnector=(vide)
+
+# CARD
+NewStackBuilderConnector=Création StackBuilderConnector
+StackBuilderConnectorCard=Fiche StackBuilderConnector
+
+StackBuilderConnectorModify=Modifier
+StackBuilderConnectorClone=Cloner
+StackBuilderConnectorValid=Valider
+StackBuilderConnectorAccept=Accepter
+StackBuilderConnectorRefuse=Refuser
+StackBuilderConnectorReopen=Rouvrir
+StackBuilderConnectorCancel=Abandonner
+StackBuilderConnectorDelete=Supprimer
+
+ConfirmValidateStackBuilderConnectorTitle=Confirmation d'activation
+ConfirmValidateStackBuilderConnectorBody=Souhaitez-vous vraiment activer cette fiche StackBuilderConnector %s ?
+
+ConfirmDeleteStackBuilderConnectorTitle=Confirmation de suppression
+ConfirmDeleteStackBuilderConnectorBody=Souhaitez-vous vraiment supprimer cette fiche StackBuilderConnector %s ?
