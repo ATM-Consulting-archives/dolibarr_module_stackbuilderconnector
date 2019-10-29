@@ -27,7 +27,38 @@ if (!class_exists('SeedObject'))
 
 class StackBuilderConnector extends SeedObject
 {
+	public static function generateXML($object) {
+		global $conf, $langs;
+		$upload_dir = '';
+		$qtyColis = 0;
+		if($object->element == 'propal') $upload_dir = $conf->propal->multidir_output[$object->entity].'/'.dol_sanitizeFileName($object->ref);
+		else if($object->element == 'commande') $upload_dir = $conf->commande->dir_output . "/" . dol_sanitizeFileName($object->ref);
+		else if($object->element == 'shipping')  $upload_dir = $conf->expedition->dir_output . "/sending/" . dol_sanitizeFileName($object->ref);
+		$xml = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><STACKBUILDER/>');
+		if(!empty($object->lines)) {
+			foreach($object->lines as $line) {
+				if(!empty($line->fk_product)) {
+					$line->fetch_product();
+					if(!empty($line->product->array_options['options_prod_per_col']) && !empty($line->qty)) $qtyColis = ceil(floatval($line->qty) / floatval($line->product->array_options['options_prod_per_col']));
+					else if(empty($line->product->array_options['options_prod_per_col'])){
+						setEventMessage($langs->trans('MissingProdPerCol'),'errors');
+						break;
+					}
+					else if(empty($line->qty)) {
+						setEventMessage($langs->trans('MissingQty'),'errors');
+						break;
+					}
+					for($i = 0; $i<$qtyColis; $i++) {
 
+					}
+					exit;
+				}
+			}
+		}
+		$xml->asXML($upload_dir . '/stackbuilder-'.$object->ref.'.xml');
+
+
+	}
 }
 
 

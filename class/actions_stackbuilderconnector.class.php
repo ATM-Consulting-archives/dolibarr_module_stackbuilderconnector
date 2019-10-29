@@ -65,6 +65,24 @@ class ActionsStackBuilderConnector
 	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
 	 * @return  int                             < 0 on error, 0 on success, 1 to replace standard code
 	 */
+	public function doActions($parameters, &$object, &$action, $hookmanager)
+	{
+		global $langs;
+		$langs->load('stackbuilderconnector@stackbuilderconnector');
+		$TContext = explode(':', $parameters['context']);
+		if ( (in_array('propalcard',$TContext) && $object->statut >= Propal::STATUS_VALIDATED)
+			|| (in_array('ordercard',$TContext) && $object->statut >= Commande::STATUS_VALIDATED)
+			|| (in_array('expeditioncard',$TContext) && $object->statut >= Expedition::STATUS_VALIDATED) )
+		{
+			dol_include_once('/stackbuilderconnector/class/stackbuilderconnector.class.php');
+			if($action == "stackbuilderdownload") {
+				StackBuilderConnector::generateXML($object);
+			}
+
+		}
+		return 0; // or return 1 to replace standard code
+	}
+
 	public function addMoreActionsButtons($parameters, &$object, &$action, $hookmanager)
 	{
 		global $langs;
