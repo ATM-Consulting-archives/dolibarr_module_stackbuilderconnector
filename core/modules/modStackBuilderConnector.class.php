@@ -44,7 +44,7 @@ class modStackBuilderConnector extends DolibarrModules
 
 		$this->editor_name = 'ATM-Consulting';
 		$this->editor_url = 'https://www.atm-consulting.fr';
-		
+
 		// Id for module (must be unique).
 		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
 		$this->numero = 104845; // 104000 to 104999 for ATM CONSULTING
@@ -57,7 +57,7 @@ class modStackBuilderConnector extends DolibarrModules
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
-		$this->description = "Description of module StackBuilderConnector";
+		$this->description = "Connecteur vers StackBuilder";
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
 		$this->version = '1.0.0';
 		// Key used in llx_const table to save module status enabled/disabled (where STACKBUILDERCONNECTOR is value of property name of module in uppercase)
@@ -68,7 +68,7 @@ class modStackBuilderConnector extends DolibarrModules
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
 		$this->picto='stackbuilderconnector@stackbuilderconnector';
-		
+
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
 		// for default path (eg: /stackbuilderconnector/core/xxxxx) (0=disable, 1=enable)
 		// for specific path of parts (eg: /stackbuilderconnector/core/modules/barcode)
@@ -88,14 +88,14 @@ class modStackBuilderConnector extends DolibarrModules
 		//							'dir' => array('output' => 'othermodulename'),      // To force the default directories names
 		//							'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@stackbuilderconnector')) // Set here all workflow context managed by module
 		//                        );
-		$this->module_parts = array();
+		$this->module_parts = array('hooks' => array('propalcard','ordercard','expeditioncard'));
 
 		// Data directories to create when module is enabled.
 		// Example: this->dirs = array("/stackbuilderconnector/temp");
 		$this->dirs = array();
 
 		// Config pages. Put here list of php page, stored into stackbuilderconnector/admin directory, to use to setup module.
-		$this->config_page_url = array("stackbuilderconnector_setup.php@stackbuilderconnector");
+//		$this->config_page_url = array("stackbuilderconnector_setup.php@stackbuilderconnector");
 
 		// Dependencies
 		$this->hidden = false;			// A condition to hide module
@@ -187,7 +187,7 @@ class modStackBuilderConnector extends DolibarrModules
 		$this->rights[$r][4] = 'read';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$this->rights[$r][5] = '';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$r++;
-		
+
 		$this->rights[$r][0] = $this->numero . $r;	// Permission id (must not be already used)
 		$this->rights[$r][1] = 'stackbuilderconnector_write';	// Permission label
 		$this->rights[$r][3] = 1; 					// Permission by default for new user (0/1)
@@ -238,7 +238,7 @@ class modStackBuilderConnector extends DolibarrModules
 		//							'target'=>'',
 		//							'user'=>2);				                // 0=Menu for internal users, 1=external users, 2=both
 		// $r++;
-		
+
 /*
 		$this->menu[$r]=array(
 			'fk_menu'=>0,			                // Put 0 if this is a top menu
@@ -305,7 +305,7 @@ class modStackBuilderConnector extends DolibarrModules
 		);				                // 0=Menu for internal users, 1=external users, 2=both
 		$r++;
 */
-		
+
 		// Exports
 		$r=1;
 
@@ -335,7 +335,7 @@ class modStackBuilderConnector extends DolibarrModules
 	public function init($options = '')
 	{
 		$sql = array();
-		
+
 		define('INC_FROM_DOLIBARR', true);
 
 		require dol_buildpath('/stackbuilderconnector/script/create-maj-base.php');

@@ -1,12 +1,12 @@
-Module104845Name = StackBuilderConnector
-Module104845Desc = StackBuilderConnector Description
+Module104845Name = Connecteur StackBuilder
+Module104845Desc = Module permettant de de communiquer avec le logiciel StackBuilder
 
 ATMAbout = Ce module a été développé par <a href="http://www.atm-consulting.fr" target="_blank">ATM Consulting</a><br>Vous pouvez retrouver la documentation sur notre <a href="http://wiki.atm-consulting.fr/index.php/Accueil" target="_blank">wiki</a><br><br>Pour toute question technique ou retour, contactez-nous sur <a href="mailto:support@atm-consulting.fr">support@atm-consulting.fr</a><br><br>Pour toute question commerciale, contactez-nous sur <a href="mailto:contact@atm-consulting.fr">contact@atm-consulting.fr</a> ou au +33 9 77 19 50 70<br><br>Retrouvez nos autres modules sur <a href="http://www.dolistore.com/search.php?orderby=position&orderway=desc&search_query=atm&submit_search=Rechercher" target="_blank">Dolistore</a>
 
-StackBuilderConnectorSetup = Configuration du module StackBuilderConnector
-StackBuilderConnectorAbout = A propos du module StackBuilderConnector
+StackBuilderConnectorSetup = Configuration du module Connecteur StackBuilder
+StackBuilderConnectorAbout = A propos du module Connecteur StackBuilder
 
-StackBuilderConnector=StackBuilderConnector
+StackBuilderConnector=Connecteur StackBuilder
 AbricotNeedUpdate=Le module abricot doit être mis à jour
 
 # SETUP
@@ -52,3 +52,5 @@ ConfirmValidateStackBuilderConnectorBody=Souhaitez-vous vraiment activer cette f
 
 ConfirmDeleteStackBuilderConnectorTitle=Confirmation de suppression
 ConfirmDeleteStackBuilderConnectorBody=Souhaitez-vous vraiment supprimer cette fiche StackBuilderConnector %s ?
+
+DowloadStackBuilderFile=Télécharger le fichier StackBuilder

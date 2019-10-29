@@ -65,30 +65,18 @@ class ActionsStackBuilderConnector
 	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
 	 * @return  int                             < 0 on error, 0 on success, 1 to replace standard code
 	 */
-	public function doActions($parameters, &$object, &$action, $hookmanager)
+	public function addMoreActionsButtons($parameters, &$object, &$action, $hookmanager)
 	{
-		$error = 0; // Error counter
-		$myvalue = 'test'; // A result value
-
-		print_r($parameters);
-		echo "action: " . $action;
-		print_r($object);
-
-		if (in_array('somecontext', explode(':', $parameters['context'])))
+		global $langs;
+		$langs->load('stackbuilderconnector@stackbuilderconnector');
+		$TContext = explode(':', $parameters['context']);
+		if ( (in_array('propalcard',$TContext) && $object->statut >= Propal::STATUS_VALIDATED)
+			|| (in_array('ordercard',$TContext) && $object->statut >= Commande::STATUS_VALIDATED)
+			|| (in_array('expeditioncard',$TContext) && $object->statut >= Expedition::STATUS_VALIDATED) )
 		{
-		  // do something only for the context 'somecontext'
-		}
+			print '<a class="butAction" href="' . $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&amp;action=stackbuilderdownload">'.$langs->trans('DowloadStackBuilderFile').'</a>';
 
-		if (! $error)
-		{
-			$this->results = array('myreturn' => $myvalue);
-			$this->resprints = 'A text to show';
-			return 0; // or return 1 to replace standard code
 		}
-		else
-		{
-			$this->errors[] = 'Error message';
-			return -1;
-		}
+		return 0; // or return 1 to replace standard code
 	}
 }
